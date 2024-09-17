@@ -1,23 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import Content from './components/Content';
+import Footer from './components/Footer';
+import Header from './components/Header'
+import React, { useState } from 'react';
 
 function App() {
+
+  const [groceryList, setGroceryList]=useState([
+    {
+        id: 1,
+        item: "Pan cake",
+        checked: true
+    },
+    {
+        id: 2,
+        item: "Chili Oil",
+        checked: false
+    },
+    {
+        id: 3,
+        item: "Garlic Salad",
+        checked: true
+    }
+  ])
+
+  const handleChange=(id)=>{
+      let listItems=groceryList.map((item)=>{
+          return (item.id===id ? {...item, checked:!item.checked} : item)
+      })
+      setGroceryList(listItems);
+      localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+  }
+
+  const handleDelClick=(id)=>{
+      const listItems=groceryList.filter((item)=>item.id!==id )
+      setGroceryList(listItems);
+      localStorage.setItem("shoppinglist", JSON.stringify(listItems))
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header title="Neela" />
+      <Content 
+      handleChange={handleChange} 
+      handleDelClick={handleDelClick} 
+      groceryList={groceryList} 
+      setGroceryList={setGroceryList} />
+      
+      <Footer total={groceryList.length} />
     </div>
   );
 }

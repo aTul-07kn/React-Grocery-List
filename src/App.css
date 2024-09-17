@@ -1,38 +1,97 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.header{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  color: #387F39;
+  background-color: #F6E96B;
+  padding: 20px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content{
+  background-color: #ECFFE6;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.container{
+  height: auto;
+  margin: 1.3rem;
+  min-width: 43%;
+  padding: 30px 28px;
+  border-radius: 10px;
+  background-color: #A2CA71;
+  color:blueviolet;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item{
+  text-align: left;
+  padding: 12px 13px;
+  min-width: 40%;
+  height: auto;
+  margin: 2rem 0;
+  background-color: #F6E96B;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item div>input[type="checkbox"]{
+  margin-right: 10px;
+  height: 1.2rem;
+  width: 1.2rem;
+  cursor: pointer;
+}
+.del-icon{
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.del-icon:hover{
+  color: tomato;
+}
+
+.footer{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  color: #F6E96B;
+  background-color: #387F39;
+  padding: 20px 0;
+}
+
+.addForm>input[type="text"]{
+  min-width: 75%;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+}
+
+.addForm{
+  border-bottom: dotted;
+}
+
+#add-btn{
+  height: 35px;
+  width: 35px;
+  color:blueviolet;
+}
+
+#add-btn:focus, #add-btn:hover{
+  color: #387F39;
 }
